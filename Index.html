@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Website Quote</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .container { max-width: 600px; margin: auto; }
+    textarea { width: 100%; height: 150px; }
+    input, button { padding: 10px; font-size: 16px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Create Your Portfolio Website</h1>
+    <p>Describe what you need and get an instant quote.</p>
+    <form id="quoteForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="description" placeholder="Describe your website requirements..." required></textarea>
+      <button type="button" onclick="getQuote()">Get Quote</button>
+    </form>
+    <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+  </div>
+  <script>
+    function getQuote() {
+      const description = document.getElementById('description').value.toLowerCase();
+      let basePrice = 300; // Base fee in dollars// Simple keyword-based adjustments
+  if (description.includes("e-commerce")) {
+    basePrice += 200;
+  }
+  if (description.includes("responsive")) {
+    basePrice += 100;
+  }
+  if (description.includes("blog")) {
+    basePrice += 50;
+  }
+  
+  document.getElementById('result').innerText = 
+    "Estimated starting price: $" + basePrice + ". We'll contact you soon with a detailed quote!";
+}
+
+  </script>
+</body>
+</html>
